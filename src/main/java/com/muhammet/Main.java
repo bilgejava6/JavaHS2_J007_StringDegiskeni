@@ -82,11 +82,65 @@ public class Main {
         do{
             vIndex = ifade.indexOf("ve",vIndex+1);
             if (vIndex == -1) break;
-            System.out.println("1. konum....: "+ vIndex);
+            System.out.println("Konum....: "+ vIndex);
         }while (true);
 
+        String email = "muhammet_hoca@gmail.com";
+        String path = "tatil_fotosu_17.05.2012.png";
 
+        noktaIndex = path.lastIndexOf(".");
+        for (int i=noktaIndex+1;i<path.length();i++)
+            System.out.print(path.charAt(i));
+        System.out.println();
+        /**
+         * ifade = "murat taşkın";
+         * substring(beginIndex) -> [beginIndex, length())   [] -> dahil - ()->hariç
+         * ifade.sunstring(7) ->  [7,12)
+         */
+        String uzanti = path.substring(noktaIndex+1);
+        System.out.println("Uzanti....: "+ uzanti);
 
+        String isim = "Murat Taşkın";
+        System.out.println("ismi kesmek... 3-8...: "+ isim.substring(3,8)); // at Ta
+
+        /**
+         * Kullanıcıdan adını ve soyadını yazmasını isteyin ve ad ve soyadını ayrı şekilde ekrana yazdırım.
+         * örnek:
+         *
+         * ad ve soyadınız..: Muhammet HOCA
+         *
+         * adınız...: Muhammet
+         * soyadınız: HOCA
+         */
+
+        System.out.print("Lütfen ad ve soyadınızı giriniz.....: "); // Muhammet HOCA
+        String adSoyad = new Scanner(System.in).nextLine();
+        int boslukIndex = adSoyad.indexOf(" ");
+        String adiniz = adSoyad.substring(0,boslukIndex);
+        String soyadiniz = adSoyad.substring(boslukIndex+1);
+        System.out.println("adiniz....: "+ adiniz);
+        System.out.println("soyadiniz....: "+ soyadiniz);
+
+        /**
+         * kullanıcıdan ad vesoyadını alınız ve doğum tarihini alınız.
+         * bu bilgiler ile adın ilk harfini ve soyadın tamamını birleştirin
+         * ve son olarak doğum yılını bu ifade ile birleştirin. sonra mail
+         * adresi oluşturmak için bilgeadam.com u ekleyin.
+         * ÖRN:
+         * adınız...: Muhammet HOCA
+         * doğum yılı: 1983
+         *
+         * email adresiniz.....: m.hoca1983@bilgeadam.com
+         *
+         */
+        System.out.println("ad ve soyadınız....: ");
+        adSoyad = new Scanner(System.in).nextLine();
+        System.out.println("doğum yiliniz......: ");
+        String dogumyili = new Scanner(System.in).nextLine();
+        adiniz = adSoyad.substring(0,adSoyad.indexOf(" "));
+        soyadiniz = adSoyad.substring(adSoyad.indexOf(" ")+1);
+        email = adiniz.charAt(0)+ "."+soyadiniz+dogumyili+"@bilgeadam.com";
+        System.out.println("email adresiniz...: "+ email);
 
 
     }
